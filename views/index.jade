@@ -1,5 +1,8 @@
+- var jscall = 'javascript:send_triger("'#{screen_cd}'");'
 extends layout
 
 block content
-  h1= title
-  p 아래 화면번호 #{title}
+  body(onload='javascript:send_trigger(#{screen_cd})')
+    h1= title
+    p #{scree_cd}
+    p 아래 화면번호 #{title}

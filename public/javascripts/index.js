@@ -1,22 +1,23 @@
+//const { stringify } = require("jade/lib/utils");
+
 $(document).ready(function () {
     // 자바스크립트 코드 작성
 });
         
-function send_trigger( screen_code) {
+function send_trigger( prcname) {
     $.support.cors = true;
     $.ajax({
-        url: "http://localhost:8080",
+        url: "http://localhost:8000/trigger",
         type: "post",
         crossdomain: true,
         accept: "application/json",
-        contentType: "application/json; charset=utf-8",
-        data: {screen_cd: screen_code},
-        dataType: "jsonp",
+        data: JSON.stringify({task_name: prcname}),
+        dataType: "json",
         success: function(data) {
             console.log(data);
         },
         error: function(jqXHR,textStatus,errorThrown) {
-            alert( message);
+            alert( textStatus);
         }
     });
 }
